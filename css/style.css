@@ -4,9 +4,9 @@
     box-sizing: border-box;
 }
 
-.container {
+#container {
     max-width: 550px;
-    margin: 50px auto 0 auto;
+    margin: 50px auto 50px auto;
 }
 
 .immagine {
