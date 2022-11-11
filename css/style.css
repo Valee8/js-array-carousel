@@ -10,11 +10,12 @@
 }
 
 .immagine {
-    width: 100%;
+    width: 550px;
     height: 250px;
 }
 
 .immagine img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
