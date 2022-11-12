@@ -3,17 +3,19 @@
 // creare un carosello come nello screenshot allegato.
 
 for (let i = 1; i <= 5; i++) {
-    const container = document.getElementById("container");
 
-    const div = document.createElement("div");
+    const slider = document.querySelector(".slider");
 
-    const image = div.classList.add("image");
+    let activeItem = 0;
 
-    container.append(div);
+    slider.innerHTML += `
+    <div class="immagine">
+        <img src="img/0${i}.webp" alt="immagine">
+    </div>`;
 
-    div.innerHTML += `<img src="img/0${i}.webp" alt="immagine" class="immagine">`;
+    const imageArray = document.getElementsByClassName("immagine");
 
-    const imageArray = container.getElementsByClassName("immagine");
+    imageArray[activeItem].classList.add("active");
 
-    console.log("test:", imageArray);
+    console.log(imageArray);
 }
