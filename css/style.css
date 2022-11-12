@@ -21,7 +21,7 @@ a {
 }
 
 .bottoni {
-    width: 200px;
+    width: 150px;
     position: absolute;
     right: 0;
     height: 250px;
@@ -35,7 +35,7 @@ a {
 }
 
 .miniature {
-    width: 200px;
+    width: 150px;
     position: absolute;
     right: 0;
     top: 0;
