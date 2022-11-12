@@ -2,6 +2,11 @@
 // Dato un array contenente una lista di cinque immagini (che create voi in base alle img che vi passo),
 // creare un carosello come nello screenshot allegato.
 
+const imageArray = document.getElementsByClassName("immagine");
+
+const miniatureArray = document.getElementsByClassName("immagine-miniatura");
+
+
 for (let i = 1; i <= 5; i++) {
 
     const slider = document.querySelector(".slider");
@@ -23,9 +28,6 @@ for (let i = 1; i <= 5; i++) {
     <div class="immagine-miniatura">
         <img src="img/0${i}.webp" alt="immagine">
     </div>`;
-
-    const imageArray = document.getElementsByClassName("immagine");
-    const miniatureArray = document.getElementsByClassName("immagine-miniatura");
 
     imageArray[activeItem].classList.add("active");
     miniatureArray[activeItem].classList.add("active");
@@ -93,5 +95,8 @@ for (let i = 1; i <= 5; i++) {
         }
     );
 
-    console.log(imageArray);
 }
+
+console.log(imageArray);
+
+console.log(miniatureArray);
