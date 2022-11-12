@@ -6,6 +6,8 @@ for (let i = 1; i <= 5; i++) {
 
     const slider = document.querySelector(".slider");
 
+    const miniature = document.querySelector(".miniature");
+
     const next = document.querySelector(".next");
 
     const prev = document.querySelector(".prev");
@@ -17,9 +19,16 @@ for (let i = 1; i <= 5; i++) {
         <img src="img/0${i}.webp" alt="immagine">
     </div>`;
 
+    miniature.innerHTML += `
+    <div class="immagine-miniatura">
+        <img src="img/0${i}.webp" alt="immagine">
+    </div>`;
+
     const imageArray = document.getElementsByClassName("immagine");
+    const miniatureArray = document.getElementsByClassName("immagine-miniatura");
 
     imageArray[activeItem].classList.add("active");
+    miniatureArray[activeItem].classList.add("active");
 
     next.addEventListener("click", 
         function() {
@@ -27,9 +36,13 @@ for (let i = 1; i <= 5; i++) {
             if (activeItem < imageArray.length - 1) {
                 imageArray[activeItem].classList.remove("active");
 
+                miniatureArray[activeItem].classList.remove("active");
+
                 activeItem++;
 
                 imageArray[activeItem].classList.add("active");
+
+                miniatureArray[activeItem].classList.add("active");
 
             }
 
@@ -37,7 +50,12 @@ for (let i = 1; i <= 5; i++) {
                 activeItem = 0;
 
                 imageArray[activeItem].classList.add("active");
+
+                miniatureArray[activeItem].classList.add("active");
+
                 imageArray[imageArray.length - 1].classList.remove("active");
+
+                miniatureArray[imageArray.length - 1].classList.remove("active");
             }
 
         }
@@ -47,11 +65,16 @@ for (let i = 1; i <= 5; i++) {
         function() {
 
             if (activeItem <= imageArray.length - 1 && activeItem > 0) {
+
                 imageArray[activeItem].classList.remove("active");
+
+                miniatureArray[activeItem].classList.remove("active");
 
                 activeItem--;
 
                 imageArray[activeItem].classList.add("active");
+
+                miniatureArray[activeItem].classList.add("active");
 
             }
 
@@ -59,8 +82,12 @@ for (let i = 1; i <= 5; i++) {
                 activeItem = imageArray.length - 1;
 
                 imageArray[activeItem].classList.add("active");
+
+                miniatureArray[activeItem].classList.add("active");
                 
                 imageArray[0].classList.remove("active");
+                
+                miniatureArray[0].classList.remove("active");
             }
 
         }

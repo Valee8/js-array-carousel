@@ -13,12 +13,19 @@ a {
     margin: 30px auto;
     text-align: center;
     position: relative;
-    padding: 0 30px;
 }
 
 .immagine {
     height: 250px;
     display: none;
+}
+
+.bottoni {
+    width: 200px;
+    position: absolute;
+    right: 0;
+    height: 250px;
+    z-index: 20;
 }
 
 .immagine img {
@@ -27,12 +34,40 @@ a {
     object-fit: cover;
 }
 
-.active {
+.miniature {
+    width: 200px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.immagine-miniatura {
+    height: 50px;
+}
+
+.immagine-miniatura.active {
+    border: 2px solid #ccc;
+}
+
+.immagine-miniatura img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(60%);
+}
+
+.immagine-miniatura.active img {
+    filter: brightness(100%); 
+}
+
+.immagine.active {
     display: block;
 }
 
 .prev, .next {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #CCC;
     border-radius: 50%;
     color: #000;
