@@ -8,7 +8,7 @@ const immaginiCollection = document.getElementsByClassName("item");
 
 const miniaturaCollection = document.getElementsByClassName("item-miniatura");
 
-for (let i = 1; i <= arrayImmagini.length; i++) {
+for (let i = 0; i < arrayImmagini.length; i++) {
 
     const slider = document.querySelector(".slider");
 
@@ -22,12 +22,12 @@ for (let i = 1; i <= arrayImmagini.length; i++) {
 
     slider.innerHTML += `
     <div class="item">
-        <img src="img/0${i}.webp" alt="immagine">
+        <img src="img/${arrayImmagini[i]}" alt="immagine">
     </div>`;
 
     miniature.innerHTML += `
     <div class="item-miniatura">
-        <img src="img/0${i}.webp" alt="immagine">
+        <img src="img/${arrayImmagini[i]}" alt="immagine">
     </div>`;
     
     immaginiCollection[activeItem].classList.add("active");
