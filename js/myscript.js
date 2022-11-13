@@ -2,12 +2,13 @@
 // Dato un array contenente una lista di cinque immagini (che create voi in base alle img che vi passo),
 // creare un carosello come nello screenshot allegato.
 
-const imageArray = document.getElementsByClassName("immagine");
+const arrayImmagini = ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp"];
 
-const miniatureArray = document.getElementsByClassName("immagine-miniatura");
+const immaginiCollection = document.getElementsByClassName("item");
 
+const miniaturaCollection = document.getElementsByClassName("item-miniatura");
 
-for (let i = 1; i <= 5; i++) {
+for (let i = 1; i <= arrayImmagini.length; i++) {
 
     const slider = document.querySelector(".slider");
 
@@ -20,44 +21,48 @@ for (let i = 1; i <= 5; i++) {
     let activeItem = 0;
 
     slider.innerHTML += `
-    <div class="immagine">
+    <div class="item">
         <img src="img/0${i}.webp" alt="immagine">
     </div>`;
 
     miniature.innerHTML += `
-    <div class="immagine-miniatura">
+    <div class="item-miniatura">
         <img src="img/0${i}.webp" alt="immagine">
     </div>`;
+    
+    immaginiCollection[activeItem].classList.add("active");
 
-    imageArray[activeItem].classList.add("active");
-    miniatureArray[activeItem].classList.add("active");
+    miniaturaCollection[activeItem].classList.add("active");
 
     next.addEventListener("click", 
         function() {
 
-            if (activeItem < imageArray.length - 1) {
-                imageArray[activeItem].classList.remove("active");
+            if (activeItem < arrayImmagini.length - 1) {
+                immaginiCollection[activeItem].classList.remove("active");
 
-                miniatureArray[activeItem].classList.remove("active");
+                miniaturaCollection[activeItem].classList.remove("active");
 
                 activeItem++;
 
-                imageArray[activeItem].classList.add("active");
+                immaginiCollection[activeItem].classList.add("active");
 
-                miniatureArray[activeItem].classList.add("active");
+                miniaturaCollection[activeItem].classList.add("active");
+
 
             }
 
             else {
                 activeItem = 0;
 
-                imageArray[activeItem].classList.add("active");
+                immaginiCollection[activeItem].classList.add("active");
 
-                miniatureArray[activeItem].classList.add("active");
+                miniaturaCollection[activeItem].classList.add("active");
 
-                imageArray[imageArray.length - 1].classList.remove("active");
+                immaginiCollection[arrayImmagini.length - 1].classList.remove("active");
 
-                miniatureArray[imageArray.length - 1].classList.remove("active");
+                miniaturaCollection[arrayImmagini.length - 1].classList.remove("active");
+
+
             }
 
         }
@@ -66,30 +71,31 @@ for (let i = 1; i <= 5; i++) {
     prev.addEventListener("click", 
         function() {
 
-            if (activeItem <= imageArray.length - 1 && activeItem > 0) {
+            if (activeItem <= arrayImmagini.length - 1 && activeItem > 0) {
 
-                imageArray[activeItem].classList.remove("active");
+                immaginiCollection[activeItem].classList.remove("active");
 
-                miniatureArray[activeItem].classList.remove("active");
+                miniaturaCollection[activeItem].classList.remove("active");
 
                 activeItem--;
 
-                imageArray[activeItem].classList.add("active");
+                immaginiCollection[activeItem].classList.add("active");
 
-                miniatureArray[activeItem].classList.add("active");
+                miniaturaCollection[activeItem].classList.add("active");
 
             }
 
             else {
-                activeItem = imageArray.length - 1;
+                activeItem = arrayImmagini.length - 1;
 
-                imageArray[activeItem].classList.add("active");
+                immaginiCollection[activeItem].classList.add("active");
 
-                miniatureArray[activeItem].classList.add("active");
+                miniaturaCollection[activeItem].classList.add("active");
+
+                immaginiCollection[0].classList.remove("active");
+
+                miniaturaCollection[0].classList.remove("active");
                 
-                imageArray[0].classList.remove("active");
-                
-                miniatureArray[0].classList.remove("active");
             }
 
         }
@@ -97,6 +103,8 @@ for (let i = 1; i <= 5; i++) {
 
 }
 
-console.log(imageArray);
+console.log(arrayImmagini);
 
-console.log(miniatureArray);
+console.log(immaginiCollection);
+
+console.log(miniaturaCollection);
