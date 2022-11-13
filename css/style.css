@@ -15,7 +15,7 @@ a {
     position: relative;
 }
 
-.immagine {
+.item {
     height: 250px;
     display: none;
 }
@@ -28,7 +28,7 @@ a {
     z-index: 20;
 }
 
-.immagine img {
+.item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -41,26 +41,26 @@ a {
     top: 0;
 }
 
-.immagine-miniatura {
+.item-miniatura {
     height: 50px;
 }
 
-.immagine-miniatura.active {
+.item-miniatura.active {
     border: 2px solid #ccc;
 }
 
-.immagine-miniatura img {
+.item-miniatura img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     filter: brightness(60%);
 }
 
-.immagine-miniatura.active img {
+.item-miniatura.active img {
     filter: brightness(100%); 
 }
 
-.immagine.active {
+.item.active {
     display: block;
 }
 
