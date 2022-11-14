@@ -8,17 +8,17 @@ const immaginiCollection = document.getElementsByClassName("item");
 
 const miniaturaCollection = document.getElementsByClassName("item-miniatura");
 
+const slider = document.querySelector(".slider");
+
+const miniature = document.querySelector(".miniature");
+
+const next = document.querySelector(".next");
+
+const prev = document.querySelector(".prev");
+
+let activeItem = 0;
+
 for (let i = 0; i < arrayImmagini.length; i++) {
-
-    const slider = document.querySelector(".slider");
-
-    const miniature = document.querySelector(".miniature");
-
-    const next = document.querySelector(".next");
-
-    const prev = document.querySelector(".prev");
-
-    let activeItem = 0;
 
     slider.innerHTML += `
     <div class="item">
@@ -29,79 +29,80 @@ for (let i = 0; i < arrayImmagini.length; i++) {
     <div class="item-miniatura">
         <img src="img/${arrayImmagini[i]}" alt="immagine">
     </div>`;
-    
-    immaginiCollection[activeItem].classList.add("active");
-
-    miniaturaCollection[activeItem].classList.add("active");
-
-    next.addEventListener("click", 
-        function() {
-
-            if (activeItem < arrayImmagini.length - 1) {
-                immaginiCollection[activeItem].classList.remove("active");
-
-                miniaturaCollection[activeItem].classList.remove("active");
-
-                activeItem++;
-
-                immaginiCollection[activeItem].classList.add("active");
-
-                miniaturaCollection[activeItem].classList.add("active");
-
-
-            }
-
-            else {
-                activeItem = 0;
-
-                immaginiCollection[activeItem].classList.add("active");
-
-                miniaturaCollection[activeItem].classList.add("active");
-
-                immaginiCollection[arrayImmagini.length - 1].classList.remove("active");
-
-                miniaturaCollection[arrayImmagini.length - 1].classList.remove("active");
-
-
-            }
-
-        }
-    );                
-
-    prev.addEventListener("click", 
-        function() {
-
-            if (activeItem <= arrayImmagini.length - 1 && activeItem > 0) {
-
-                immaginiCollection[activeItem].classList.remove("active");
-
-                miniaturaCollection[activeItem].classList.remove("active");
-
-                activeItem--;
-
-                immaginiCollection[activeItem].classList.add("active");
-
-                miniaturaCollection[activeItem].classList.add("active");
-
-            }
-
-            else {
-                activeItem = arrayImmagini.length - 1;
-
-                immaginiCollection[activeItem].classList.add("active");
-
-                miniaturaCollection[activeItem].classList.add("active");
-
-                immaginiCollection[0].classList.remove("active");
-
-                miniaturaCollection[0].classList.remove("active");
-                
-            }
-
-        }
-    );
 
 }
+
+immaginiCollection[activeItem].classList.add("active");
+
+miniaturaCollection[activeItem].classList.add("active");
+
+next.addEventListener("click", 
+    function() {
+
+        if (activeItem < arrayImmagini.length - 1) {
+
+            immaginiCollection[activeItem].classList.remove("active");
+
+            miniaturaCollection[activeItem].classList.remove("active");
+
+            activeItem++;
+
+            immaginiCollection[activeItem].classList.add("active");
+
+            miniaturaCollection[activeItem].classList.add("active");
+
+        }
+
+        else {
+            
+            activeItem = 0;
+
+            immaginiCollection[activeItem].classList.add("active");
+
+            miniaturaCollection[activeItem].classList.add("active");
+
+            immaginiCollection[arrayImmagini.length - 1].classList.remove("active");
+
+            miniaturaCollection[arrayImmagini.length - 1].classList.remove("active");
+            
+        }
+
+    }
+);                
+
+prev.addEventListener("click", 
+    function() {
+
+        if (activeItem <= arrayImmagini.length - 1 && activeItem > 0) {
+
+            immaginiCollection[activeItem].classList.remove("active");
+
+            miniaturaCollection[activeItem].classList.remove("active");
+
+            activeItem--;
+
+            immaginiCollection[activeItem].classList.add("active");
+
+            miniaturaCollection[activeItem].classList.add("active");
+
+        }
+
+        else {
+
+            activeItem = arrayImmagini.length - 1;
+
+            immaginiCollection[activeItem].classList.add("active");
+
+            miniaturaCollection[activeItem].classList.add("active");
+
+            immaginiCollection[0].classList.remove("active");
+
+            miniaturaCollection[0].classList.remove("active");      
+
+        }
+
+    }
+);
 
 console.log(arrayImmagini);
 
