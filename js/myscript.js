@@ -32,10 +32,13 @@ for (let i = 0; i < arrayImmagini.length; i++) {
 
 }
 
+// Aggiungo active al primo elemento
 immaginiCollection[activeItem].classList.add("active");
 
 miniaturaCollection[activeItem].classList.add("active");
 
+
+// Bottone next
 next.addEventListener("click", 
     function() {
 
@@ -64,12 +67,14 @@ next.addEventListener("click",
             immaginiCollection[arrayImmagini.length - 1].classList.remove("active");
 
             miniaturaCollection[arrayImmagini.length - 1].classList.remove("active");
-            
+
         }
 
     }
 );                
 
+
+// Bottone prev
 prev.addEventListener("click", 
     function() {
 
